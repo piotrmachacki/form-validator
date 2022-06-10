@@ -1,0 +1,89 @@
+{
+    "root": true,
+    "env": {
+        "node": true,
+        "browser": true,
+        "es6": true
+    },
+    "extends": ["eslint:recommended", "airbnb-base"],
+    "parserOptions": {
+        "ecmaVersion": 2022,
+        "parser": "@babel/eslint-parser",
+        "sourceType": "module"
+    },
+    "plugins": ["prettier", "html"],
+    "rules": {
+        "indent": ["error", 4, { "SwitchCase": 1 }],
+        "no-multiple-empty-lines": [
+            "error",
+            {
+                "max": 3,
+                "maxEOF": 1,
+                "maxBOF": 0
+            }
+        ],
+        "no-return-assign": ["error", "except-parens"],
+        "curly": "off",
+        "max-len": [
+            "error",
+            {
+                "code": 500,
+                "ignoreStrings": true,
+                "ignoreUrls": true,
+                "ignorePattern": "data:image"
+            }
+        ],
+        "space-before-function-paren": [
+            "error",
+            {
+                "anonymous": "never",
+                "named": "never",
+                "asyncArrow": "always"
+            }
+        ],
+        "linebreak-style": ["error", "unix"],
+        "quotes": [
+            "error",
+            "single",
+            {
+                "avoidEscape": true
+            }
+        ],
+        "semi": ["error", "always"],
+        "no-plusplus": "off",
+        "prefer-destructuring": "off",
+        "no-unused-vars": [
+            "error",
+            {
+                "vars": "all",
+                "args": "none",
+                "ignoreRestSiblings": true
+            }
+        ],
+        "no-loop-func": "off",
+        "import/no-cycle": "off",
+        "arrow-parens": ["error", "as-needed"],
+        "func-names": ["error", "as-needed"],
+        "no-nested-ternary": "off",
+        "no-unused-expressions": ["error", { "allowTernary": true }],
+        "no-mixed-operators": ["error", { "allowSamePrecedence": true }],
+        "no-case-declarations": "off",
+        "prefer-promise-reject-errors": "off",
+        "object-curly-newline": ["error", { "consistent": true }],
+        "comma-dangle": [
+            "error",
+            {
+                "arrays": "always-multiline",
+                "objects": "always-multiline",
+                "imports": "always-multiline",
+                "exports": "always-multiline",
+                "functions": "never"
+            }
+        ],
+        "prefer-exponentiation-operator": "off",
+        "no-restricted-properties": "off"
+    },
+    "settings": {
+        "import/extensions": [".js"]
+    }
+}
