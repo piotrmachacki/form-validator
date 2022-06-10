@@ -1,0 +1,22 @@
+[
+    {
+        "id": "fl-email",
+        "type": "email",
+        "name": "email",
+        "label": "Adres e-mail",
+        "autofocus": true,
+        "fieldType": "input"
+    },
+    {
+        "id": "fl-password",
+        "type": "password",
+        "name": "password",
+        "label": "Hasło",
+        "fieldType": "input"
+    },
+    {
+        "type": "submit",
+        "label": "Zaloguj",
+        "fieldType": "button"
+    }
+]

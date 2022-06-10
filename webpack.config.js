@@ -7,6 +7,7 @@ const TerserPlugin = require('terser-webpack-plugin');
 module.exports = {
     mode: 'none',
     target: 'web',
+    devtool: 'source-map',
     entry: [
         '/src/js/app.js',
         '/src/sass/app.scss',
@@ -53,6 +54,13 @@ module.exports = {
                     'css-loader',
                     'postcss-loader',
                     'sass-loader',
+                ],
+            },
+            {
+                test: /\.hbs$/,
+                exclude: /node_modules/,
+                use: [
+                    'handlebars-loader',
                 ],
             },
         ],

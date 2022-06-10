@@ -1,5 +1,11 @@
-import Generator from './generator';
-import Validator from './validator';
+import FormGenerator from './generator';
+// import FormValidator from './validator';
+import forms from './forms';
 
-console.log('GENERATOR', Generator);
-console.log('VALIDATOR', Validator);
+const formRegisterElement = document.querySelector('#form-register');
+const formRegister = new FormGenerator(formRegisterElement, forms.register);
+formRegister.build();
+
+const formLoginElement = document.querySelector('#form-login');
+const formLogin = new FormGenerator(formLoginElement, forms.login);
+formLogin.build();

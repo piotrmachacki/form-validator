@@ -81,7 +81,8 @@
             }
         ],
         "prefer-exponentiation-operator": "off",
-        "no-restricted-properties": "off"
+        "no-restricted-properties": "off",
+        "no-new": "off"
     },
     "settings": {
         "import/extensions": [".js"]
