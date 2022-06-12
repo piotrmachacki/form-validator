@@ -82,7 +82,9 @@
         ],
         "prefer-exponentiation-operator": "off",
         "no-restricted-properties": "off",
-        "no-new": "off"
+        "no-new": "off",
+        "no-constructor-return": "off",
+        "class-methods-use-this": "off"
     },
     "settings": {
         "import/extensions": [".js"]

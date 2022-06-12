@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form register</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css">
+    <script src="../dist/FormGenerator.js"></script>
+</head>
+
+<body>
+    <div class="container">
+
+        <nav class="navbar navbar-expand-lg bg-light border mb-3">
+            <div class="container-fluid">
+                <a class="navbar-brand" href="#">Form generator/validator</a>
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav">
+                        <li class="nav-item">
+                            <a class="nav-link" href="index.html">Home</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link active" href="register.html">Register</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="login.html">Login</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+
+        <!-- Formularz walidowany -->
+        <fieldset class="border p-3">
+            <legend>Register Form</legend>
+            <form id="form-register" class="form" data-validate>
+                <div class="loading d-flex justify-content-center p-3">
+                    <div class="spinner-border" role="status">
+                        <span class="visually-hidden">Loading...</span>
+                      </div>
+                </div>
+            </form>
+        </fieldset>
+
+        <script>
+            const data = [
+                {
+                    id: 'fr-email',
+                    type: 'email',
+                    name: 'email',
+                    label: 'Adres e-mail',
+                    required: true,
+                    autofocus: true,
+                },
+                {
+                    id: 'fr-password',
+                    type: 'password',
+                    name: 'password',
+                    label: 'Hasło',
+                    required: true,
+                },
+                {
+                    id: 'fr-password_confirmation',
+                    type: 'password',
+                    name: 'password_confirmation',
+                    label: 'Powtórz hasło',
+                    required: true,
+                },
+                {
+                    id: 'fr-newsletter',
+                    type: 'checkbox',
+                    name: 'newsletter',
+                    label: 'Zapisz się na newsletter',
+                    required: false,
+                },
+                {
+                    type: 'submit',
+                    label: 'Zarejestruj',
+                },
+                {
+                    type: 'reset',
+                    label: 'Wyczyść',
+                    class: 'btn-light',
+                },
+            ];
+
+            FormGenerator.build(document.querySelector('#form-register'), data); // eslint-disable-line no-undef
+        </script>
+
+    </div>
+</body>
+
+</html>

@@ -1,33 +1,25 @@
 const path = require('path');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
-const HtmlWebpackPlugin = require('html-webpack-plugin');
-const OptimizeCssAssetsPlugin = require('optimize-css-assets-webpack-plugin');
 const TerserPlugin = require('terser-webpack-plugin');
 
 module.exports = {
     mode: 'none',
     target: 'web',
-    devtool: 'source-map',
-    entry: [
-        '/src/js/app.js',
-        '/src/sass/app.scss',
-    ],
+    // devtool: 'source-map',
+    entry: {
+        FormGenerator: '/src/generator/generator.js',
+        FormValidator: '/src/validator/validator.js',
+    },
     output: {
-        filename: 'js/[name].js',
+        filename: '[name].js',
         path: path.resolve(__dirname, 'dist/'),
+        libraryTarget: 'umd',
+        libraryExport: 'default',
+        library: '[name]',
+        umdNamedDefine: true,
     },
     plugins: [
         new CleanWebpackPlugin(),
-        new HtmlWebpackPlugin({
-            filename: 'index.html',
-            inject: true,
-            template: path.resolve(__dirname, 'src', 'index.html'),
-        }),
-        new OptimizeCssAssetsPlugin({
-            cssProcessorPluginOptions: {
-                preset: ['default', { discardComments: { removeAll: true } }],
-            },
-        }),
     ],
     optimization: {
         minimize: true,
@@ -43,20 +35,6 @@ module.exports = {
                 ],
             },
             {
-                test: /\.scss$/,
-                exclude: /node_modules/,
-                use: [
-                    {
-                        loader: 'file-loader',
-                        options: { outputPath: 'css/', name: '[name].min.css' },
-                    },
-                    'extract-loader',
-                    'css-loader',
-                    'postcss-loader',
-                    'sass-loader',
-                ],
-            },
-            {
                 test: /\.hbs$/,
                 exclude: /node_modules/,
                 use: [
@@ -64,15 +42,5 @@ module.exports = {
                 ],
             },
         ],
-    },
-    devServer: {
-        static: {
-            directory: path.join(__dirname, 'dist'),
-        },
-        watchFiles: ['src/**/*'],
-        compress: true,
-        port: 9000,
-        open: true,
-        liveReload: true,
     },
 };
