@@ -63,6 +63,9 @@ class FormGenerator {
             case 'radio':
                 fieldType = 'radio';
                 break;
+            case 'textarea':
+                fieldType = 'textarea';
+                break;
             default:
                 fieldType = 'input';
         }

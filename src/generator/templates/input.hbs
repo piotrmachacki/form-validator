@@ -1,5 +1,5 @@
 <div class="mb-3">
-    <label for="{{ id }}" class="form-label">{{ label }}</label>
+    <label {{#if id}}for="{{ id }}"{{/if}} class="form-label">{{ label }}</label>
     <input
         class="
             {{#unless isRangeType}}form-control{{/unless}}

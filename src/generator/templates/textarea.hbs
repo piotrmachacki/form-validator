@@ -1,0 +1,15 @@
+<div class="mb-3">
+    <label {{#if id}}for="{{ id }}"{{/if}} class="form-label">{{ label }}</label>
+    <textarea
+        class="form-control"
+        {{#if id}}id="{{ id }}"{{/if}}
+        {{#if name}}name="{{ name }}"{{/if}}
+        {{#if placeholder}}placeholder="{{ placeholder }}"{{/if}}
+        {{#if rows}}rows="{{ rows }}"{{/if}}
+        {{#if cols}}cols="{{ cols }}"{{/if}}
+        {{#if required}}required{{/if}}
+        {{#if autofocus}}autofocus{{/if}}
+    >
+        {{#if value}}{{ value }}{{/if}}
+  </textarea>
+</div>
