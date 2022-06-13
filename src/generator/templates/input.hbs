@@ -1,4 +1,21 @@
 <div class="mb-3">
     <label for="{{ id }}" class="form-label">{{ label }}</label>
-    <input class="form-control" id="{{ id }}" type="{{ type }}" placeholder="{{ placeholder }}" required="{{ required }}" {{#if autofocus}}autofocus{{/if}}>
+    <input
+        class="
+            {{#unless isRangeType}}form-control{{/unless}}
+            {{#if isRangeType}}form-range{{/if}}
+        "
+        {{#if id}}id="{{ id }}"{{/if}}
+        {{#if type}}type="{{ type }}"{{/if}}
+        {{#if name}}name="{{ name }}"{{/if}}
+        {{#if value}}value="{{ value }}"{{/if}}
+        {{#if placeholder}}placeholder="{{ placeholder }}"{{/if}}
+        {{#if minlength}}minlength="{{ minlength }}"{{/if}}
+        {{#if maxlength}}maxlength="{{ maxlength }}"{{/if}}
+        {{#if min}}min="{{ min }}"{{/if}}
+        {{#if max}}max="{{ max }}"{{/if}}
+        {{#if step}}step="{{ step }}"{{/if}}
+        {{#if required}}required{{/if}}
+        {{#if autofocus}}autofocus{{/if}}
+    >
 </div>

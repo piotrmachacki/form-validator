@@ -44,7 +44,9 @@ class FormGenerator {
             console.error(`Pole typu '${data.type}' nie jest obsługiwane!`);
             return null;
         }
-        return template(data);
+        const templateData = { ...data };
+        if (data.type) templateData[`is${data.type.charAt(0).toUpperCase()}${data.type.slice(1).toLowerCase()}Type`] = true; // eg. isRangeType, isNumberType
+        return template(templateData);
     }
 
     getFieldTemplate(type) {
