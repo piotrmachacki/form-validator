@@ -66,6 +66,9 @@ class FormGenerator {
             case 'textarea':
                 fieldType = 'textarea';
                 break;
+            case 'select':
+                fieldType = 'select';
+                break;
             default:
                 fieldType = 'input';
         }

@@ -134,6 +134,14 @@
                     cols: 3,
                 },
                 {
+                    id: 'fv-options',
+                    type: 'select',
+                    name: 'options',
+                    label: 'Wybierz jedną z opcji',
+                    required: true,
+                    options: [{ value: null, label: '-- wybierz --' }, { value: 1, label: 'opcja pierwsza' }, { value: 2, label: 'opcja druga' }, { value: 3, label: 'opcja trzecia' }],
+                },
+                {
                     type: 'submit',
                     label: 'Wyślij',
                 },
