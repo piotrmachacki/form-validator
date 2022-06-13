@@ -80,8 +80,16 @@
                 },
             ];
 
-            FormGenerator.build(document.querySelector('#form-register'), fieldsData); // eslint-disable-line no-undef
-            FormValidator.init(document.querySelector('#form-register')); // eslint-disable-line no-undef
+            const formElement = document.querySelector('#form-register');
+            FormGenerator.build(formElement, fieldsData); // eslint-disable-line no-undef
+            const isValidate = formElement && (formElement.getAttribute('data-validate') !== null);
+            if (isValidate) {
+                const js = document.createElement('script');
+                js.onload = () => FormValidator.init(formElement); // eslint-disable-line no-undef
+                js.setAttribute('async', '');
+                js.src = '../dist/FormValidator.js';
+                document.head.appendChild(js);
+            }
         </script>
 
     </div>

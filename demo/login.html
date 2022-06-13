@@ -46,7 +46,7 @@
 
         <!-- Miejsce na skrypt inicjalizujący moduły -->
         <script>
-            const data = [
+            const fieldsData = [
                 {
                     id: 'fl-email',
                     type: 'email',
@@ -69,7 +69,16 @@
                 },
             ];
 
-            FormGenerator.build(document.querySelector('#form-login'), data); // eslint-disable-line no-undef
+            const formElement = document.querySelector('#form-login');
+            FormGenerator.build(formElement, fieldsData); // eslint-disable-line no-undef
+            const isValidate = formElement && (formElement.getAttribute('data-validate') !== null);
+            if (isValidate) {
+                const js = document.createElement('script');
+                js.onload = () => FormValidator.init(formElement); // eslint-disable-line no-undef
+                js.setAttribute('async', '');
+                js.src = '../dist/FormValidator.js';
+                document.head.appendChild(js);
+            }
         </script>
 
 
