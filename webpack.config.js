@@ -21,10 +21,10 @@ module.exports = {
     plugins: [
         new CleanWebpackPlugin(),
     ],
-    // optimization: {
-    //     minimize: true,
-    //     minimizer: [new TerserPlugin()],
-    // },
+    optimization: {
+        minimize: true,
+        minimizer: [new TerserPlugin()],
+    },
     module: {
         rules: [
             {
